@@ -10,7 +10,7 @@ This repository contains the final version of the Learning Journal project. It i
 - User-friendly interface for seamless navigation.
 
 ## Installation
-
+If you don't have Node.js installed, download and install it from [Node.js official website](https://nodejs.org/).
 1. Clone the repository:
     ```bash
     git clone https://github.com/Fahad-Al-Maashani/Quizzy_Agent_AI_Learning.git
