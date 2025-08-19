@@ -1,0 +1,6 @@
+node_modules/
+.next/
+.env*
+# Local data files (keeps the folder, skips your private notes)
+data/notes.json
+data/streak.log

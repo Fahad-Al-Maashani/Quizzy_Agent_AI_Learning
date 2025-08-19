@@ -1,0 +1,36 @@
+name: Daily Auto Commit
+
+# This workflow runs every day at 03:00 UTC. It checks out the repository,
+# installs dependencies (for the heartbeat script), runs the heartbeat script
+# to append a timestamp to data/streak.log, then commits and pushes any
+# resulting changes. The commit message includes [skip ci] to prevent
+# re-triggering this workflow. Ensure that GitHub Actions has permission
+# to push to your branch.
+on:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run heartbeat script
+        run: node scripts/heartbeat.js
+
+      - name: Commit and push if changed
+        run: |
+          chmod +x scripts/commit-if-changed.sh
+          ./scripts/commit-if-changed.sh
