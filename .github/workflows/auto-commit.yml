@@ -6,9 +6,9 @@ name: Daily Auto Commit
 # resulting changes. The commit message includes [skip ci] to prevent
 # re-triggering this workflow. Ensure that GitHub Actions has permission
 # to push to your branch.
-on:
-  schedule:
-    - cron: '0 3 * * *'
+#on:
+  #schedule:
+   # - cron: '0 3 * * *'
 
 jobs:
   heartbeat:
